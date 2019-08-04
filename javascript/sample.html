@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+</canvas>
+
+<script>
+function drawRect(){
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * 256)
+}
+
+function getRandomColor() {
+  let red = getRandomNumber();
+  let green = getRandomNumber();
+  let blue = getRandomNumber();
+  return `rgb(${red},${green},${blue})`
+}
+
+let colors = [
+  "red",
+  "blue",
+  "green",
+  "black",
+  "pink",
+  "yellow",
+  "purple"
+]
+
+for (let locationX = 0; locationX < 20; locationX++) {
+  for (let locationY = 0; locationY < 20; locationY++) {
+    ctx.fillStyle = getRandomColor();
+    ctx.fillRect(20*locationX, 20*locationY, 20, 20);
+  	}
+	}
+}
+
+setInterval(drawRect, 1);
+
+</script>
+
+</body>
+</html>

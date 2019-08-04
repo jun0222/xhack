@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="1000" height="150" style="border:1px solid #d3d3d3;">
+</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var x = 0;
+var colorNum = 0;
+var colors = [
+"red",
+"blue",
+"green",
+"black",
+"pink",
+"gray",
+"yellow"
+]
+
+function getRandomNumber(){
+	return Math.floor(Math.random()*256);				
+};
+console.log(getRandomNumber())
+function getRandomColor(){
+	let red = getRandomNumber();
+	let green = getRandomNumber();
+	let blue = getRandomNumber();
+	console.log(red);
+ return `rgb(${red},${green},${blue})`
+};
+
+console.log(getRandomColor);
+
+for(let i=0; i<20; i++){
+
+
+ctx.fillStyle = colors[colorNum];
+ctx.fillRect(x, 0, 30, 30);
+x += 31;
+if(colorNum < 6){
+colorNum += 1;
+}else{
+colorNum = 0;
+				}
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid #d3d3d3;">
+</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+function getRandomNumber(size) {
+  return Math.floor(Math.random() * size)
+}
+
+function getRandomColor() {
+  let red = getRandomNumber(256);
+  let green = getRandomNumber(256);
+  let blue = getRandomNumber(256);
+  return `rgb(${red},${green},${blue})`
+}
+
+let color = "red";
+let x = 20;
+let y = 20;
+let speedX = 10;
+let speedY = 10;
+let size = 30;
+
+function drawCircle()
+{
+  ctx.fillStyle = "rgba(8,8,12,1)";
+  ctx.fillRect(0, 0, 300, 300);
+  
+  x = x + speedX;
+  y = y + speedY;
+
+  if (x > 300 || x < 0) {
+    speedX = -speedX;
+  }
+  if (y > 300 || y < 0) {
+    speedY = -speedY;
+  }
+
+  ctx.beginPath();
+  ctx.fillStyle = color;
+  ctx.arc(x, y, size, 0, Math.PI*2, false);
+  ctx.fill();
+}
+
+setInterval(drawCircle, 33);
+
+</script>
+
+</body>
+</html>
